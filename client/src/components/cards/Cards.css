@@ -1,0 +1,17 @@
+.cards-overview-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cards-overview-section__header {
+    display: flex;
+    justify-content: center;
+}
+.card-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
