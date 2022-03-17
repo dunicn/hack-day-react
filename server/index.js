@@ -1,9 +1,18 @@
-const express = require('express')
+import express from 'express'
+import { getImages } from './utils.js'
 const app = express()
 const port = 8080
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.get('/:keyword', async (req, res) => {
+  const { keyword } = req.params
+  const result = await getImages(keyword)
+
+  res.json(result)
 })
 
 app.listen(port, () => {
