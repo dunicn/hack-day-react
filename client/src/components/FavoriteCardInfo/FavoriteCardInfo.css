@@ -80,7 +80,9 @@
     }
     
     .favorite-item__image-clicked { 
-        height: 250px;
+        /* height: 250px; */
+        width: 100%;
+
 
     
     }
@@ -111,11 +113,11 @@
     }
 
     .favorite-info__link {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .favorite-item-clicked__remove-button {
-        font-size: 16px;
+        font-size: 14px;
       } 
       
     

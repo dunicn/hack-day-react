@@ -92,7 +92,6 @@
     text-align: center;
     text-decoration: none;
     font-size: 12px;
-    /* margin: 4px 2px; */
     transition-duration: 0.4s;
     cursor: pointer;
   } 
@@ -108,7 +107,8 @@
     }
     
     .item__image-clicked { 
-        height: 250px;
+        /* height: 250px; */
+        width: 100%;
 
     
     }
@@ -136,11 +136,11 @@
     }
 
     .pic-info__link {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .item-clicked__favorite-button {
-        font-size: 16px;
+        font-size: 14px;
       } 
       
     
