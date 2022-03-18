@@ -1,0 +1,79 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-page__header {
+    color: #53616A;
+    margin-top: 3em;
+    font-size: 2em;
+}
+
+.about-page__desc {
+    color: #53616A;
+    margin-top: 2em;
+    font-size: 1,5em;
+    width: 70%;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10em;
+    /* margin: 5em; */
+    width: 80%;
+
+}
+
+.contact-mail-title {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #53616A;
+    font-size: 2em;
+}
+
+
+
+.social-links {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    margin: 0.5em;
+    color: #01669C;
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 900px){
+    .about-page__desc {
+        width: 50%;
+    }
+    
+    .contact {
+        width: 50%;
+    
+    }
+   
+}
+
+
+@media only screen and (min-width: 901px) {
+    .about-page__desc {
+        width: 30%;
+    }
+    
+    .contact {
+        width: 30%;
+    
+    }
+	
+}

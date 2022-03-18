@@ -1,9 +1,10 @@
 import React from 'react'
 import Form from '../../components/form/Form'
 import './HomePage.css'
+import { CardInterface } from '../../App';
 
 interface formProps {
-  setState: React.Dispatch<React.SetStateAction<any[]>>
+  setState: React.Dispatch<React.SetStateAction<CardInterface[]>>
 }
 
 const HomePage = ( { setState } : formProps) => {

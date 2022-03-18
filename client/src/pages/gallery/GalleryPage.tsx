@@ -2,15 +2,16 @@ import React from 'react'
 import Cards from '../../components/cards/Cards'
 import Form from '../../components/form/Form';
 import './GalleryPage.css'
+import { CardInterface } from '../../App';
 
 export interface setStateProp {
-  setState: React.Dispatch<React.SetStateAction<any[]>>
+  setState: React.Dispatch<React.SetStateAction<CardInterface[]>>
 }
 
 interface GalleryInterface {
-  urls: any[];
-  setUrls: React.Dispatch<React.SetStateAction<any[]>>,
-  setFavs: React.Dispatch<React.SetStateAction<any[]>>
+  urls: CardInterface[];
+  setUrls: React.Dispatch<React.SetStateAction<CardInterface[]>>,
+  setFavs: React.Dispatch<React.SetStateAction<CardInterface[]>>
 }
 
 const GalleryPage: React.FC<GalleryInterface> = ( {urls, setUrls, setFavs}) => {

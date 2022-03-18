@@ -1,28 +1,6 @@
-/* .nav {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #01669C;
-    margin: 1em;
-    height: 2em;
-
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-
-}
-
-.nav__list-item {
-    background-color: #01669C;
-
-} */
 
 .nav {
     display: flex;
-    justify-content: space-evenly;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -33,9 +11,11 @@ a {
   
   .nav__list-item {
     float: left;
+    width: 25%;
   }
   
   .nav__list-item a {
+    font-size: 16px;
     display: block;
     color: white;
     text-align: center;
@@ -46,3 +26,18 @@ a {
   .nav__list-item a:hover {
     background-color: #111;
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 900px){
+    .nav__list-item a {
+      font-size: 20px;
+    }
+}
+
+
+@media only screen and (min-width: 901px) {
+  .nav__list-item a {
+    font-size: 24px;
+  }
+}
+
+

@@ -1,12 +1,11 @@
 import React from 'react'
 import './Form.css'
 import { v4 as uuidv4 } from 'uuid';
-
 import { useNavigate } from 'react-router-dom' 
-
+import { CardInterface } from '../../App';
 
 export interface setStateProp {
-  setState: React.Dispatch<React.SetStateAction<any[]>>
+  setState: React.Dispatch<React.SetStateAction<CardInterface[]>>
 }
 
 const Form = ( { setState } : setStateProp) => {
@@ -20,10 +19,9 @@ const Form = ( { setState } : setStateProp) => {
     const keyword = Object.fromEntries(searchData).searchFieldInput;
     
     const data = await fetch(`http://localhost:8080/${keyword}`).then((res) => res.json());
-    const dataWithID = data.map((item: any) => {
+    const dataWithID = data.map((item: CardInterface) => {
       item.clicked = false;
       item.id = uuidv4(); 
-      // console.log(item)
       return item
     })
     setState(dataWithID)

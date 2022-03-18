@@ -1,26 +1,55 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Cards from './components/cards/Cards';
-import Form from './components/form/Form';
 import Navbar from './components/navbar/Navbar';
-import AboutPage from './pages/AboutPage';
-import { FavoritesPage } from './pages/FavoritesPage';
+import AboutPage from './pages/aboutPage/AboutPage';
+import { FavoritesPage } from './pages/favoritesPage/FavoritesPage';
 import GalleryPage from './pages/gallery/GalleryPage';
 import HomePage from './pages/homepage/HomePage';
 
+export interface CardInterface {
+  descr: string,
+  url: string,
+  download: string,
+  username: string,
+  user_image: string,
+  user_bio: string,
+  clicked: boolean,
+  id: string
+}
+
 const App: React.FC = () => {
 
-  const state: any[] = [{"descr":"close up photo of tabby cat","url":"https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMTA4MTN8MHwxfHNlYXJjaHwxfHxjYXR8ZW58MHx8fHwxNjQ3NTAxMzI0&ixlib=rb-1.2.1&q=80&w=400","download":"https://unsplash.com/photos/cWOzOnSoh6Q/download?ixid=MnwzMTA4MTN8MHwxfHNlYXJjaHwxfHxjYXR8ZW58MHx8fHwxNjQ3NTAxMzI0","username":"Pacto Visual","user_image":"https://images.unsplash.com/profile-1473344555115-b9ddcfea9017?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128", "clicked": true}]
+  const state: CardInterface[] = []
 
-  const favorites: any[] = []
+  const favorites: CardInterface[] = []
 
   const [ urls, setUrls ] = useState(state);
 
   const [ favs, setFavs ] = useState(favorites)
 
+  useEffect(() => {
+    const localStorageData = localStorage.getItem('urls')
+    if (localStorageData) {
+      setUrls(JSON.parse(localStorageData))
+    }
+  }, [] )
 
-  console.log('state', favs)
+  useEffect(() => {
+    localStorage.setItem('urls', JSON.stringify(urls))
+  })
+
+  useEffect(() => {
+    const localStorageData = localStorage.getItem('favs')
+    if (localStorageData) {
+      setFavs(JSON.parse(localStorageData))
+    }
+  }, [] )
+
+  useEffect(() => {
+    localStorage.setItem('favs', JSON.stringify(favs))
+  })
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -28,11 +57,9 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<HomePage setState={setUrls} />}/>
           <Route path='/gallery' element={<GalleryPage urls={urls} setUrls={setUrls} setFavs={setFavs}/>}/>
-          <Route path='/favorites' element={<FavoritesPage favs={favs}/>}/>
+          <Route path='/favorites' element={<FavoritesPage favs={favs} setFavs={setFavs}/>}/>
           <Route path='/about' element={<AboutPage />}/>
-
         </Routes>
-        {/* <Cards urls={urls}/> */}
       </div>
     </BrowserRouter>
   );

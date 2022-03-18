@@ -7,16 +7,18 @@
 }
 
 body {
-  background-color: #87939A;
+  background-color: #E4E8EA;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: 'Noto Serif', serif, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
